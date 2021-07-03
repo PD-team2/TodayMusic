@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url("C:\00.practice\github\TodayMusic\TodayMusic\src\main\webapp\img\cloud.jpg") no-repeat center;
+    background: url("file://C:/00.practice/workspace_webui/003.miniproject_day1/src/main/webapp/img/girl.jpg") no-repeat center;
     background-size: cover;
     
 }
@@ -28,6 +28,16 @@ body::before {
     text-align: center;
 }
 
+.findMemberPw-form {position: relative; z-index: 2;}
+.findMemberPw-form h1 {
+    font-size: 32px; color: #fff;
+    text-align: center;
+}
+
+.findMemberPw-form h3 {
+    font-size: 16px; color: #fff;
+    text-align: center;
+}
 .int-area {
     width:400px; position: relative;
     margin-top: 20px;
@@ -35,7 +45,7 @@ body::before {
 
 .int-area input{
     width:100%;
-    padding 20px 10px 10px;
+    padding: 20px 10px 10px;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #999;
@@ -60,6 +70,20 @@ body::before {
     text-align: center;
 }
 .caption a {
+    font-size: 15px; color: #999;
+    text-decoration: none;
+}
+
+.span1 {
+    position: relative;
+    top: 0px;
+    left: 10px;
+    text-align: center;
+    font-size: 15px; color: #999;
+    text-decoration: none;
+}
+.span1 a {
+  
     font-size: 15px; color: #999;
     text-decoration: none;
 }
