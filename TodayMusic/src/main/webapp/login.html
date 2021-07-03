@@ -7,8 +7,9 @@
         <!-- css : external : css_JHK.css -->
         <link type="text/css" rel="stylesheet" href="css/css_JHK.css">
         
-        <!-- js : external  : js_logIn_JHK.js -->
+        <!-- js : external  : js_logIn_JHK.js 
         <script src="js_logIn_JHK.js"></script>
+        -->
         
         <!-- js : internal  : js_logIn_JHK.js -->
         <script type="text/javascript">
@@ -23,6 +24,9 @@
         
         }
         
+	    function goIndex() {
+	    	location.href="index_JHK.html"; }
+
         </script>
              
         
@@ -31,7 +35,7 @@
 	<body>
         <section class="login-form">
         <h1>오늘은 뭐 듣지?</h1>
-        <form action="index.html">
+        <form action="index_JHK.html" method="post">
             
             <!-- 아이디 -->
             <div class="int-area">
@@ -45,7 +49,7 @@
             </div>
             <div class="int-area">
             <span id="memberPwMsg"></span>   
-            <input type="password" name="memberPw" id="memnerPw"
+            <input type="password" name="memberPw" id="memberPw"
                 placeholder=" PASSWORD" autocomplete="off" required>
             
             <!-- 로그인 --> 
@@ -70,13 +74,14 @@
             
             <!--  카카오 로그인 --> 
             <div class="caption">
-            <a href="javascript: KakaoLogin();">
-            <img src="img\kakao_login_medium_narrow.png"></a>        
+            <a id="custom-login-btn" href="javascript:loginWithKakao()">
+			<img src="img/kakao_login_medium_wide.png" width="350"/>
+			</a>
 			</div>
              
         </section>
 		
-		<!-- 
+<!-- 
 카카오 로그인    
 JavaScript 키 : 2d681ebbff382a35fc7708f907548c94    
 -->     
@@ -84,21 +89,18 @@ JavaScript 키 : 2d681ebbff382a35fc7708f907548c94
 <script type="text/javascript">
 window.Kakao.init("2d681ebbff382a35fc7708f907548c94");
 
-function KakaoLogin() {
-    window.Kakao.Auth.login({
-        scope:'profile_nickname,account_email',   
-        success: function(authObj) {
-            console.log(authObj);
-            window.Kakao.API.request({
-                url:'/v2/user/me',
-                success: res => {
-                    const kakao_account = res.kakao_account;
-                    console.log(kakao_account);
-                }
-            });
-        }
-    });   
-} 
+function loginWithKakao() {
+  Kakao.Auth.login({
+    success: function(authObj) {
+      //alert(JSON.stringify(authObj))
+      goIndex();
+    },
+    fail: function(err) {
+     // alert(JSON.stringify(err))
+    },
+  })
+}
+
    
 </script>
 	 
