@@ -20,16 +20,3 @@
 .resultDesc{
   font-size: 20px;
 }
-
-.gohome{
-  color: white;
-  background-color: pink;
-  font-size: 20px;
-  border: 0px;
-  border-radius: 20px;
-}
-
-.gohome:hover, .gohome:focus {
-  background-color: whitesmoke;
-  color: pink;
-}
