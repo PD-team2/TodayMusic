@@ -8,42 +8,38 @@
    
     <script type="text/javascript">   
      function sendMail() {
+    	 // var emailElement = {
+         //     memberId : "user01",
+         //     tempNum : "123456",
+         //	 	email : "jaehyunkim19826@naver.com"
+        //  }
+    
+    	 var emailElement = {};
+    	 emailElement.memberId = document.getElementById("memberId").value;
+    	 emailElement.tempNum = randomNumber();
+    	 console.log("emailElement.tempNum : " + emailElement.tempNum);
+    	 emailElement.email = document.getElementById("email").value;
     	 
-    	
-         var tempNum = randomNumber();
-         console.log("tempNum()-1: ", tempNum.value);
-    	 
-         var emailElement = {
-             memberId : "user01",
-              tempNum : "123456",
-           	  email : "jaehyunkim19826@naver.com"
-          }
-		
-         
-         
-        emailjs.init("user_irTOcdicOfCi1q3ar3yJT");
-        emailjs.send("service_FindMemberPw","template_7jeplxf",emailElement)
-        .then(function(response) {
+    	 //emailjs 발송
+         emailjs.init("user_irTOcdicOfCi1q3ar3yJT");
+         emailjs.send("service_FindMemberPw","template_7jeplxf",emailElement)
+         .then(function(response) {
              console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
              
              window.name = "parentForm";
              var emailCheckWin = window.open("sendEmail.html","childForm");
-             emailCheckWin.document.getElementById("childTempNum").value = tempNum.value;
-             console.log("tempNum()-2: ", tempNum.value);
+            // emailCheckWin.document.getElementById("childTempNum").value = parentTempNum;
              
         }, function(err) {
              console.log("FAILED. error=", err);
-             alert("FAILED");
+             document.getElementById("parentTempNum").innerHTML = "EmailJs Service Error";
+             return false;
           });
      };
-     
    	
      function checkEmail(email) {
-
      	var reg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-
      	return reg.test(email);
-
      }
      
      function randomNumber() {
@@ -53,11 +49,6 @@
 		  }
 		  return randomNum
 		}
-     
-	
-	
-	
-	
   </script>
     
  
@@ -66,6 +57,7 @@
 <body class="findPw-Page">
  <section class="findMemberPw-form">
         <h1>비밀번호찾기</h1>
+        <h3 id="parentTempNum"></h3>
         <form action="#" method="post">
             <div class="int-area">
             <input type="text" name="memberId" id="memberId"
