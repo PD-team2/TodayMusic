@@ -21,19 +21,6 @@
   font-size: 20px;
 }
 
-.kakao{
-  color: white;
-  background-color: #FEE500;
-  font-size: 20px;
-  border: 0px;
-  border-radius: 20px;
-}
-
-.kakao:hover, .kakao:focus {
-  background-color: whitesmoke;
-  color: #FEE500;
-}
-
 .gohome{
   color: white;
   background-color: pink;
