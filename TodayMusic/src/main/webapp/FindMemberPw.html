@@ -7,11 +7,15 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
    
     <script type="text/javascript">   
-     (function sendMail() {
-
+     function sendMail() {
+    	 
+    	
+         var tempNum = randomNumber();
+         console.log("tempNum()-1: ", tempNum.value);
+    	 
          var emailElement = {
              memberId : "user01",
-              tempNum : "753698",
+              tempNum : "123456",
            	  email : "jaehyunkim19826@naver.com"
           }
 		
@@ -21,25 +25,45 @@
         emailjs.send("service_FindMemberPw","template_7jeplxf",emailElement)
         .then(function(response) {
              console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
-          }, function(err) {
+             
+             window.name = "parentForm";
+             var emailCheckWin = window.open("sendEmail.html","childForm");
+             emailCheckWin.document.getElementById("childTempNum").value = tempNum.value;
+             console.log("tempNum()-2: ", tempNum.value);
+             
+        }, function(err) {
              console.log("FAILED. error=", err);
+             alert("FAILED");
           });
-     })();
+     };
      
-     function tempNum() {
-		  let str = ''
+   	
+     function checkEmail(email) {
+
+     	var reg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+     	return reg.test(email);
+
+     }
+     
+     function randomNumber() {
+		  let randomNum = ''
 		  for (let i = 0; i < 6 ; i++) {
-		    str += Math.floor(Math.random() * 10)
+			  randomNum += Math.floor(Math.random() * 10);
 		  }
-		  return str
+		  return randomNum
 		}
-	console.log("tempNum(): ", tempNum());
+     
+	
+	
+	
+	
   </script>
     
  
 </head>
     
-<body>
+<body class="findPw-Page">
  <section class="findMemberPw-form">
         <h1>비밀번호찾기</h1>
         <form action="#" method="post">
@@ -49,13 +73,12 @@
                
             </div>
             <div class="int-area">
-             <input type="text" name="email" id="email"
+            <input type="text" name="email" id="email"
                    placeholder=" E-mail" autocomplete="off" required>
             </div>
             <div class="btn-area">
-            <input type="hidden" name="tempNum" id="tempNum" value="tempNum()">
-             
-            <button type="submit" value="sendMail()">확인</button>
+            
+            <button type="button" onclick="sendMail();">확인</button>
             </div>
             </form>
           
