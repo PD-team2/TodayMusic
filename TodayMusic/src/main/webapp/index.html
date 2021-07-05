@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>TodayMusicMain</title>
+
  <script type="text/javascript">
   function mbti() {
 	var specs = "width=1800,height=1600,top=1600,right=2300";
@@ -64,18 +65,13 @@ a {
   <h1>Today Music</h1>
   <nav class="menu">
     <span><a href="#">Menu1</a></span>
-    <span><a href="#">Menu2</a></span>
-    <span><a href="#">Menu3</a></span>
+    <span><a href="#">로그인</a></span>
+    <span><a href="#">내정보조회</a></span>
   </nav>
 </header>
 <body>
 
 <br><br><br><br><br>
-<input type="button" value="김주리" onclick="">
-<input type="button" value="김재현" onclick="">
-<input type="button" value="조성현" onclick="">
-<input type="button" value="최낙원" onclick="mbti()">
-<input type="button" value="황윤아" onclick="">
 
 <style type="text/css"> div.img_box {
 		text-align: center;
@@ -84,11 +80,29 @@ a {
 	div.img_box {
 		margin-top: 20px;
 	}
+	
+	div.img_link{
+		text-align: center;
+	}
+	
+	div.img_link_row{
+		margin-top: 20px;
+	}
 
 	img[src$=".jpg"] {
 		width: 160px;
 		height: 210px;
 		margin: 3px;
+	}
+	
+	img[src$=".png"] {
+		width: 160px;
+		height: 280px;
+		margin: 3px;
+	}
+	
+	div.img_link > div.img_link_row img:hover {
+		border: solid 5px #D71826;
 	}
 	
 	.page_title {
@@ -106,6 +120,14 @@ a {
 <h3 class="page_subtitle">오늘뭐듣지에서 즐거운시간되세요~~</h3>
 <div class="img_small">
 	
+</div>
+
+<div class="img_link">
+	<div class="img_link_row">
+	<span class="img_link" onclick="mbti()"><img src="img/mbti.png"></span>
+	<span class="img_link"><img src="img/fortune.png"></span>
+	<span class="img_link"><img src="img/recommend.png"></span>
+</div>
 </div>
 
 <div class="img_box">
