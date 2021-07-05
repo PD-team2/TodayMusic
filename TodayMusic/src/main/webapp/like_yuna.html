@@ -3,12 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<title>내가 좋아요 한 노래</title>
+<title>좋아요 | 오늘뭐듣지?</title>
 	<link rel="stylesheet" href="css/css_like_yuna.css" />
+	<link rel="stylesheet" href="css/css_header_yuna.css" />
 	<script type="text/javascript" src="js/js_like_yuna.js"></script>
 </head>
 <body>
-<form name="playListForm" id="playListForm" method="post" class="playListForm" action="/Page" onsubmit="return false;">
+
+	<header>
+		<h1><a href="index.html">Today Music</a></h1>
+		<nav class="menu">
+			<span><a href="login.html">로그아웃 | </a></span>
+			<span><a href="music_now.html">지금 뭐 듣지? | </a></span>
+			<span><a href="mypage.html">마이페이지</a></span>
+		</nav>
+	</header>
+
+<form name="playListForm" id="playListForm" method="post" class="playListForm" action="/Page" onsubmit="return false;" style="padding-top: 75px;">
 	<input type="hidden" name="cmd" value="playList">
 	<div class="likeListdiv" id="likeList">
 		<div class="row head">
@@ -58,7 +69,7 @@
     </div>
     
     <div class="buttongroup center-align cmd">
-    	<a href="javascript:void(0);">돌아가기</a>
+    	<a href="index.html">돌아가기</a>
     </div>
 	
 
